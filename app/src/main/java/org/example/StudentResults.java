@@ -1,4 +1,4 @@
-package app.src.main.java.org.example;
+package org.example;
 
 public class StudentResults{
     public static void main(String[] args){

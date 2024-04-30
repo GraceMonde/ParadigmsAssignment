@@ -1,0 +1,283 @@
+---
+root(Type=CompilationUnit): 
+    types: 
+        - type(Type=ClassOrInterfaceDeclaration): 
+            isInterface: "false"
+            name(Type=SimpleName): 
+                identifier: "StudentResults"
+            members: 
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=VariableDeclarationExpr): 
+                                    variables: 
+                                        - variable(Type=VariableDeclarator): 
+                                            initializer(Type=ObjectCreationExpr): 
+                                                type(Type=ClassOrInterfaceType): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "Student"
+                                                arguments: 
+                                                    - argument(Type=StringLiteralExpr): 
+                                                        value: "Jane"
+                                            name(Type=SimpleName): 
+                                                identifier: "myStudent"
+                                            type(Type=ClassOrInterfaceType): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "Student"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=VariableDeclarationExpr): 
+                                    variables: 
+                                        - variable(Type=VariableDeclarator): 
+                                            initializer(Type=ObjectCreationExpr): 
+                                                type(Type=ClassOrInterfaceType): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "Results"
+                                                arguments: 
+                                                    - argument(Type=IntegerLiteralExpr): 
+                                                        value: "39"
+                                            name(Type=SimpleName): 
+                                                identifier: "myResults"
+                                            type(Type=ClassOrInterfaceType): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "Results"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=BinaryExpr): 
+                                            operator: "PLUS"
+                                            left(Type=BinaryExpr): 
+                                                operator: "PLUS"
+                                                left(Type=BinaryExpr): 
+                                                    operator: "PLUS"
+                                                    left(Type=StringLiteralExpr): 
+                                                        value: "Name: "
+                                                    right(Type=MethodCallExpr): 
+                                                        name(Type=SimpleName): 
+                                                            identifier: "getName"
+                                                        scope(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "myStudent"
+                                                right(Type=StringLiteralExpr): 
+                                                    value: ", Grade: "
+                                            right(Type=MethodCallExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "getGrade"
+                                                scope(Type=NameExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "myResults"
+                    type(Type=VoidType): 
+                    name(Type=SimpleName): 
+                        identifier: "main"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                        - modifier(Type=Modifier): 
+                            keyword: "STATIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "args"
+                            type(Type=ArrayType): 
+                                origin: "TYPE"
+                                componentType(Type=ClassOrInterfaceType): 
+                                    name(Type=SimpleName): 
+                                        identifier: "String"
+            modifiers: 
+                - modifier(Type=Modifier): 
+                    keyword: "PUBLIC"
+        - type(Type=ClassOrInterfaceDeclaration): 
+            isInterface: "false"
+            name(Type=SimpleName): 
+                identifier: "Student"
+            members: 
+                - member(Type=FieldDeclaration): 
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                    variables: 
+                        - variable(Type=VariableDeclarator): 
+                            name(Type=SimpleName): 
+                                identifier: "name"
+                            type(Type=ClassOrInterfaceType): 
+                                name(Type=SimpleName): 
+                                    identifier: "String"
+                - member(Type=ConstructorDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "name"
+                                        scope(Type=ThisExpr): 
+                                    value(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "name"
+                    name(Type=SimpleName): 
+                        identifier: "Student"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "name"
+                            type(Type=ClassOrInterfaceType): 
+                                name(Type=SimpleName): 
+                                    identifier: "String"
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ReturnStmt): 
+                                expression(Type=NameExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "name"
+                    type(Type=ClassOrInterfaceType): 
+                        name(Type=SimpleName): 
+                            identifier: "String"
+                    name(Type=SimpleName): 
+                        identifier: "getName"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+        - type(Type=ClassOrInterfaceDeclaration): 
+            isInterface: "false"
+            name(Type=SimpleName): 
+                identifier: "Results"
+            members: 
+                - member(Type=FieldDeclaration): 
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                    variables: 
+                        - variable(Type=VariableDeclarator): 
+                            name(Type=SimpleName): 
+                                identifier: "mark"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                - member(Type=FieldDeclaration): 
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                    variables: 
+                        - variable(Type=VariableDeclarator): 
+                            name(Type=SimpleName): 
+                                identifier: "grade"
+                            type(Type=PrimitiveType): 
+                                type: "CHAR"
+                - member(Type=ConstructorDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "mark"
+                                        scope(Type=ThisExpr): 
+                                    value(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "mark"
+                    name(Type=SimpleName): 
+                        identifier: "Results"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "mark"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=IfStmt): 
+                                condition(Type=BinaryExpr): 
+                                    operator: "GREATER_EQUALS"
+                                    left(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "mark"
+                                    right(Type=IntegerLiteralExpr): 
+                                        value: "80"
+                                elseStmt(Type=IfStmt): 
+                                    condition(Type=BinaryExpr): 
+                                        operator: "GREATER_EQUALS"
+                                        left(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "mark"
+                                        right(Type=IntegerLiteralExpr): 
+                                            value: "60"
+                                    elseStmt(Type=IfStmt): 
+                                        condition(Type=BinaryExpr): 
+                                            operator: "GREATER_EQUALS"
+                                            left(Type=NameExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "mark"
+                                            right(Type=IntegerLiteralExpr): 
+                                                value: "40"
+                                        elseStmt(Type=BlockStmt): 
+                                            statements: 
+                                                - statement(Type=ExpressionStmt): 
+                                                    expression(Type=AssignExpr): 
+                                                        operator: "ASSIGN"
+                                                        target(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "grade"
+                                                        value(Type=CharLiteralExpr): 
+                                                            value: "D"
+                                        thenStmt(Type=BlockStmt): 
+                                            statements: 
+                                                - statement(Type=ExpressionStmt): 
+                                                    expression(Type=AssignExpr): 
+                                                        operator: "ASSIGN"
+                                                        target(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "grade"
+                                                        value(Type=CharLiteralExpr): 
+                                                            value: "C"
+                                    thenStmt(Type=BlockStmt): 
+                                        statements: 
+                                            - statement(Type=ExpressionStmt): 
+                                                expression(Type=AssignExpr): 
+                                                    operator: "ASSIGN"
+                                                    target(Type=NameExpr): 
+                                                        name(Type=SimpleName): 
+                                                            identifier: "grade"
+                                                    value(Type=CharLiteralExpr): 
+                                                        value: "B"
+                                thenStmt(Type=BlockStmt): 
+                                    statements: 
+                                        - statement(Type=ExpressionStmt): 
+                                            expression(Type=AssignExpr): 
+                                                operator: "ASSIGN"
+                                                target(Type=NameExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "grade"
+                                                value(Type=CharLiteralExpr): 
+                                                    value: "A"
+                            - statement(Type=ReturnStmt): 
+                                expression(Type=NameExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "grade"
+                    type(Type=PrimitiveType): 
+                        type: "CHAR"
+                    name(Type=SimpleName): 
+                        identifier: "getGrade"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+...

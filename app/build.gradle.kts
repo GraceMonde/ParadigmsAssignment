@@ -22,10 +22,10 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // This dependency is used by the application.
-    //implementation(libs.guava)
-    //implementation("com.github.javaparser:javaparser-core:3.24.10")
-    //implementation("com.github.javaparser:javaparser-symbol-solver-core:3.24.10")
-     implementation 'com.github.javaparser:javaparser-core:3.26.0'
+    implementation(libs.guava)
+    implementation("com.github.javaparser:javaparser-core:3.24.10")
+    implementation("com.github.javaparser:javaparser-symbol-solver-core:3.24.10")
+     
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
