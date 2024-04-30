@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 public class Main {
     public static void main(String[] args) throws Exception {
         // Parse the Java source file
-        FileInputStream in = new FileInputStream("StudentResults.java");
+        FileInputStream in = new FileInputStream("C:\\Users\\GRACE\\Desktop\\ParadigmsAssignment\\StudentResults.java");
         CompilationUnit cu = JavaParser.parse(in);
 
         // Traverse the AST to extract class names
