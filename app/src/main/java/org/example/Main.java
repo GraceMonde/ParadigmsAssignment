@@ -2,6 +2,7 @@ package org.example;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
+import com.github.javaparser.Token;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.printer.YamlPrinter;
@@ -11,6 +12,8 @@ import com.github.javaparser.printer.lexicalpreservation.LexicalPreservingPrinte
 
 import java.io.FileInputStream;
 import java.io.FileWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -25,12 +28,21 @@ public class Main {
         cu.findAll(ClassOrInterfaceDeclaration.class).forEach(classNode ->
                 System.out.println("Class Name: " + classNode.getName()));
 
+
+        Map<String, Integer> tokenCounts = new HashMap<>();
+        countTokensTypes(cu, tokenCounts);
+
+        // Print token counts
+        System.out.println("Token counts:");
+        for (Map.Entry<String, Integer> entry : tokenCounts.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        
         // Print the number of tokens
         int counts = countTokens(cu);
         System.out.println("Number of tokens: " + counts);
 
         // Optionally, print the AST
-        System.out.println("AST:");
         String ast = new YamlPrinter(true).output(cu);
         FileWriter ast_wr = new FileWriter(ouputDirAST);
         ast_wr.append(ast);
@@ -61,5 +73,16 @@ public class Main {
         }
 
         return tokenCount;
+    }
+
+    private static void countTokensTypes(Node node, Map<String, Integer> tokenCounts) {
+        node.walk(Node.TreeTraversal.PREORDER, currentNode -> {
+            currentNode.getTokenRange().ifPresent(tokenRange -> {
+                tokenRange.forEach(token -> {
+                    String tokenType = token.getCategory().name();
+                    tokenCounts.put(tokenType, tokenCounts.getOrDefault(tokenType, 0) + 1);
+                });
+            });
+        });
     }
 }
